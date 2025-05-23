@@ -1,0 +1,35 @@
+# Node.js dependencies
+node_modules/
+
+# Environment files (never push secrets)
+.env
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE files
+.vscode/
+.idea/
+
+# Build or distribution folders (if used in frontend later)
+dist/
+build/
+
+# Optional test or temp files
+coverage/
+*.local
+
+
+
+
+
+
+
+
+
