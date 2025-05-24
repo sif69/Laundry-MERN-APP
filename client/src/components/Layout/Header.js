@@ -51,15 +51,9 @@ const Header = () =>{
                 </li>
                  <li className="nav-item">
                   <NavLink to="/Laundry Bag" className="nav-link" href="#">
-                    Laundry Bag (0)
+                    Laundry Basket (0)
                   </NavLink>
                 </li>
-
-
-
-
-
-
 
 
               
