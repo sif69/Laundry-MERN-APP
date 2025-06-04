@@ -1,5 +1,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap") */
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
 
 * {
@@ -112,4 +114,254 @@
 .service-link{
      text-decoration:none;
      color: black;
+}
+
+.header-wrapper {
+  background-color: #EFF6FF;
+  width: 100%;
+}
+.header-container {
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  gap: 2rem;
+  
+}
+
+.header-content {
+  max-width: 36rem;
+}
+
+.header-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.header-title .green-text {
+  color: #16a34a;
+}
+
+.header-title .blue-text {
+  color: #2563eb;
+}
+
+.header-divider {
+  border-bottom: 1px solid #e5e7eb;
+  width: 4rem;
+  margin: 1.5rem auto;
+}
+
+.header-description {
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+
+.services-button:hover {
+  background-color: #1d4ed8;
+}
+
+.header-image-container {
+  flex-shrink: 0;
+}
+
+.header-image {
+  max-width: 24rem;
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+  }
+  
+  .header-title,
+  .header-divider,
+  .header-description {
+    text-align: left;
+  }
+  
+  .header-divider {
+    margin-left: 0;
+  }
+}
+
+/* Steps Section */
+.steps-section {
+  background-color: #dbeafe; /* Light blue background */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.steps-container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.steps-subtitle {
+  color: #2563eb; /* Blue color */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.steps-title {
+  color: #1f2937; /* Dark gray */
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.step-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.step-image {
+  height: 8rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-number {
+  color: #3b82f6; /* Blue color */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.step-name {
+  color: #374151; /* Gray color */
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+/* Responsive styles */
+@media (min-width: 640px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Packages Section */
+.packages-section {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.packages-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.packages-subtitle {
+  color: #3b82f6; /* Blue color */
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.packages-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #1f2937; /* Dark gray */
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding: 0 0.5rem;
+}
+
+.package-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.package-image {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.package-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.package-name {
+  color: #3b82f6; /* Blue color */
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.package-description {
+  color: #4b5563; /* Gray color */
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive styles */
+@media (min-width: 640px) {
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .packages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

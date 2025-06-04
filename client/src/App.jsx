@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import ServicePage from "./pages/ServicePage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Policy from "./pages/Policy";
@@ -32,7 +33,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-
+        <Route path="/service" element={<ServicePage />} />
         <Route path="/service/:slug" element={<ServiceDetails />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:slug" element={<CategoryService />} />
