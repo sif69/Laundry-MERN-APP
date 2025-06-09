@@ -548,7 +548,7 @@ const HomePage = () => {
               <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
                 <img
                   src={`/api/v1/service/service-photo/${p._id}`}
-                  className="card-img-top"
+                  className="service-card-img"
                   alt={p.name}
                 />
                 <div className="card-body">
