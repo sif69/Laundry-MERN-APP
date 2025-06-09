@@ -36,25 +36,3 @@ export const isAdmin = async (req, res, next) => {
     });
   }
 };
-
-// for deliver men 
-export const isDelivery = async (req, res, next) => {
-  try {
-    const user = await userModel.findById(req.user._id);
-    if (user.role !== 2) {
-      return res.status(401).send({
-        success: false,
-        message: "Unauthorized access",
-      });
-    } else {
-      next();
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(401).send({
-      success: false,
-      error,
-      message: "Error in delivery middleware",
-    });
-  }
-};

@@ -20,8 +20,8 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-     address: {
-      type: {},
+    address: {
+      type: String,
       required: true,
     },
     answer: {
