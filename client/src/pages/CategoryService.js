@@ -39,7 +39,7 @@ const CategoryService = () => {
                 >
                   <img
                     src={`/api/v1/service/service-photo/${p._id}`}
-                    className="card-img-top"
+                    className="service-card-img"
                     alt={p.name}
                   />
                   <div className="card-body">
@@ -61,9 +61,7 @@ const CategoryService = () => {
                 </div>
               ))}
             </div>
-            {
-
-            /* <div className="m-2 p-3">
+            {/* <div className="m-2 p-3">
             {services && services.length < total && (
               <button
                 className="btn btn-warning"
@@ -75,8 +73,7 @@ const CategoryService = () => {
                 {loading ? "Loading ..." : "Loadmore"}
               </button>
             )}
-          </div> */
-          }
+          </div> */}
           </div>
         </div>
       </div>
