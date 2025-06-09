@@ -23,15 +23,13 @@ const serviceSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
-  
+
     photo: {
       data: Buffer,
       contentType: String,
     },
-   
   },
   { timestamps: true }
 );
 
 export default mongoose.model("Services", serviceSchema);
-
