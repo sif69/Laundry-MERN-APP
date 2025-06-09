@@ -51,7 +51,17 @@
   ); 
 }
 
-
+/* adjusting the image */
+.service-card-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: block;
+  background: #f4f4f4;
+  border: 1px solid #e1e1e1;
+}
 
 
 
