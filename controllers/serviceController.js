@@ -5,7 +5,7 @@ import slugify from "slugify";
 
 export const createServiceController = async (req, res) => {
   try {
-    const { name, description, price, category, loadCount, shipping } =
+    const { name, description, price, category} =
       req.fields;
     const { photo } = req.files;
     // validation
@@ -18,8 +18,8 @@ export const createServiceController = async (req, res) => {
         return res.status(500).send({ error: "Price is required" });
       case !category:
         return res.status(500).send({ error: "Category is required" });
-      case !loadCount:
-        return res.status(500).send({ error: "Load Count is required" });
+      // case !loadCount:
+      //   return res.status(500).send({ error: "Load Count is required" });
       case photo && photo.size > 1000000:
         return res
           .status(500)
@@ -152,8 +152,8 @@ export const updateServiceController = async (req, res) => {
         return res.status(500).send({ error: "Price is required" });
       case !category:
         return res.status(500).send({ error: "Category is required" });
-      case !loadCount:
-        return res.status(500).send({ error: "Load Count is required" });
+      // case !loadCount:
+      //   return res.status(500).send({ error: "Load Count is required" });
       case photo && photo.size > 1000000:
         return res
           .status(500)
