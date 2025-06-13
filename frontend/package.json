@@ -16,6 +16,7 @@
     "react-dom": "^19.1.0",
     "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.5.2",
+    "react-image-zooom": "^1.4.1",
     "react-router-dom": "^7.6.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^11.0.5",

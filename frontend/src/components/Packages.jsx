@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import WashIronImg from "../assets/wash-iron.png";
 import WashFoldImg from "../assets/wash-fold.png";
 import IronFoldImg from "../assets/iron-fold.png";
@@ -40,7 +39,7 @@ const packages = [
 ];
 
 export default function Packages() {
-  const navigate = useNavigate();
+  
   
   return (
     <section className="packages-section">
@@ -58,7 +57,7 @@ export default function Packages() {
               <img
                 src={pkg.img}
                 alt={pkg.title}
-                className="package-image"
+                className="package-image" 
               />
               <div className="package-content">
                 <h4 className="package-name">{pkg.title}</h4>

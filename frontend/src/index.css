@@ -330,6 +330,11 @@
   object-fit: cover;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.package-image:hover {
+  transform: scale(0.9); /* Zoom out slightly */
 }
 
 .package-content {
@@ -364,4 +369,20 @@
   .packages-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Header.css */
+.nav-link:hover,
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+
+.nav-link.active {
+  font-weight: bold;
+  background-color: #e0e0e0;
+  border-radius: 4px;
 }

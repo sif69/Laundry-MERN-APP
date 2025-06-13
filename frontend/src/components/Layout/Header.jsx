@@ -41,9 +41,16 @@ const Header = () => {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
               <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
-                  Home
-                </NavLink>
+<NavLink
+  to="/"
+  className="nav-link"
+  style={{ transition: "all 0.3s", borderRadius: "4px" }}
+  onMouseEnter={(e) => (e.target.style.backgroundColor = "#f0f0f0")}
+  onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}
+>
+  Home
+</NavLink>
+
               </li>
               <li className="nav-item">
                 <NavLink to="/service" className="nav-link ">
