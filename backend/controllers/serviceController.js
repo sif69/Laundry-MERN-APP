@@ -20,7 +20,7 @@ export const createServiceController = async (req, res) => {
         return res.status(500).send({ error: "Category is required" });
       // case !loadCount:
       //   return res.status(500).send({ error: "Load Count is required" });
-      case photo && photo.size > 1000000:
+      case photo && photo.size > 2000000:
         return res
           .status(500)
           .send({ error: "Photo is required and should be less than 1mb" });
@@ -154,7 +154,7 @@ export const updateServiceController = async (req, res) => {
         return res.status(500).send({ error: "Category is required" });
       // case !loadCount:
       //   return res.status(500).send({ error: "Load Count is required" });
-      case photo && photo.size > 1000000:
+      case photo && photo.size > 2000000:
         return res
           .status(500)
           .send({ error: "Photo is required and should be less than 1mb" });
