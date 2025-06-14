@@ -45,7 +45,7 @@ const AllOrders = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>User</th>
+                  <th>Users</th>
                   <th>Services</th>
                   <th>Amount</th>
                   <th>Status</th>
