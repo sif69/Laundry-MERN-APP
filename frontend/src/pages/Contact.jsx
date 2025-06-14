@@ -1,32 +1,45 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
 import { BiMailSend, BiPhoneCall, BiSupport } from "react-icons/bi";
+
 const Contact = () => {
   return (
     <Layout title={"Contact Us"}>
-      <div className="row contactus ">
-        <div className="col-md-6 ">
-          <img
-            src="/images/contactus.jpeg"
-            alt="contactus"
-            style={{ width: "100%" }}
-          />
-        </div>
-        <div className="col-md-4">
-          <h1 className="bg-dark p-2 text-white text-center">CONTACT US</h1>
-          <p className="text-justify mt-2">
-            any query and info about Service feel free to call anytime we 24X7
-            available
-          </p>
-          <p className="mt-3">
-            <BiMailSend /> : www.help@ecommerceapp.com
-          </p>
-          <p className="mt-3">
-            <BiPhoneCall /> : 012-3456789
-          </p>
-          <p className="mt-3">
-            <BiSupport /> : 1800-0000-0000 (toll free)
-          </p>
+      <div className="container py-5">
+        <div className="row justify-content-center align-items-center">
+          <div className="col-md-6 mb-4 mb-md-0">
+            <img
+              src="/images/contactus.jpeg"
+              alt="contactus"
+              style={{
+                width: "100%",
+                borderRadius: "12px",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+              }}
+            />
+          </div>
+          <div className="col-md-6">
+            <div className="card shadow p-4" style={{ borderRadius: "12px", background: "#f8f9fa" }}>
+              <h2 className="mb-3 text-primary text-center">Contact Us</h2>
+              <p className="text-muted mb-4 text-center">
+                For any query or info about our services, feel free to contact us anytime. We are available 24x7!
+              </p>
+              <ul className="list-unstyled fs-5">
+                <li className="mb-3">
+                  <BiMailSend className="me-2 text-secondary" />
+                  <strong>Email:</strong> help@ecommerceapp.com
+                </li>
+                <li className="mb-3">
+                  <BiPhoneCall className="me-2 text-secondary" />
+                  <strong>Phone:</strong> 012-3456789
+                </li>
+                <li>
+                  <BiSupport className="me-2 text-secondary" />
+                  <strong>Support:</strong> 1800-0000-0000 <span className="text-muted">(toll free)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
