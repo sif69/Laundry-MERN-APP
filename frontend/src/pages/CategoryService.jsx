@@ -25,6 +25,7 @@ const CategoryService = () => {
 
   return (
     <Layout>
+      <div style={{ backgroundColor: "#e0f7fa", minHeight: "100vh", padding: "1rem" }}>
       <div className="container mt-3">
         <h4 className="text-center">Category - {category?.name}</h4>
         <h6 className="text-center">{services?.length} result found </h6>
@@ -79,6 +80,7 @@ const CategoryService = () => {
           }
           </div>
         </div>
+      </div>
       </div>
     </Layout>
   );
