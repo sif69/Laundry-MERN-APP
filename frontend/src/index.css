@@ -387,3 +387,9 @@
   background-color: #e0e0e0;
   border-radius: 4px;
 }
+
+.service-page-background {
+  background-color: #dbeafe; /* light blue or use blue */
+  min-height: 100vh;
+  padding: 1rem;
+}

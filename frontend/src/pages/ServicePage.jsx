@@ -59,23 +59,40 @@ const ServicePage = () => {
   }, []);
 
   useEffect(() => {
-    if (page === 1) return;
+  if (page === 1) return;
+  if (!checked.length && !radio.length) {
     loadMore();
-    // eslint-disable-next-line
-  }, [page]);
+  } else {
+    filterService(page);
+  }
+  // eslint-disable-next-line
+}, [page]);
 
   // load more services
-  const loadMore = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(`/api/v1/service/service-list/${page}`);
-      setLoading(false);
-      setServices((prev) => [...prev, ...data?.services]);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
+const loadMore = async () => {
+  try {
+    setLoading(true);
+    let data;
+    if (!checked.length && !radio.length) {
+      // No filters, get all services
+      const res = await axios.get(`/api/v1/service/service-list/${page}`);
+      data = res.data;
+    } else {
+      // Filters active, get filtered services
+      const res = await axios.post(`/api/v1/service/service-filters`, {
+        checked,
+        radio,
+        page,
+      });
+      data = res.data;
     }
-  };
+    setLoading(false);
+    setServices((prev) => [...prev, ...(data?.services || [])]);
+  } catch (error) {
+    console.log(error);
+    setLoading(false);
+  }
+};
 
   // filter by category
   const handleFilter = (value, id) => {
@@ -89,31 +106,34 @@ const ServicePage = () => {
   };
 
   // get filtered services
-  const filterService = async () => {
-    try {
-      const { data } = await axios.post(`/api/v1/service/service-filters`, {
-        checked,
-        radio,
-      });
+  const filterService = async (pageNum = 1) => {
+  try {
+    const { data } = await axios.post(`/api/v1/service/service-filters`, {
+      checked,
+      radio,
+      page: pageNum,
+    });
+    if (pageNum === 1) {
       setServices(data?.services);
-    } catch (error) {
-      console.log(error);
+    } else {
+      setServices((prev) => [...prev, ...(data?.services || [])]);
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   // Combined effect for filters
   useEffect(() => {
-    if (!checked.length && !radio.length) {
-      getAllServices();
-    } else {
-      filterService();
-    }
-    // eslint-disable-next-line
-  }, [checked, radio]);
+  setPage(1);
+  filterService(1);
+  // eslint-disable-next-line
+}, [checked, radio]);
 
   return (
     <Layout title={"All Services - Best offers "}>
-      <div className="container-fluid row mt-3">
+      <div className="service-page-background">
+              <div className="container-fluid row mt-3">
         <div className="col-md-2">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
@@ -216,6 +236,8 @@ const ServicePage = () => {
           </div>
         </div>
       </div>
+      </div>
+
     </Layout>
   );
 };
