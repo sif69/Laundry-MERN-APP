@@ -150,10 +150,11 @@ const ServicePage = () => {
           <h1 className="text-center">All Services</h1>
           <div className="d-flex flex-wrap">
             {services?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+              <div className="card m-2" style={{ width: "18rem", borderRadius: "1rem"
+               }} key={p._id}>
                 <img
                   src={`/api/v1/service/service-photo/${p._id}`}
-                  className="card-img-top"
+                  className="package-image"
                   alt={p.name}
                 />
                 <div className="card-body">
