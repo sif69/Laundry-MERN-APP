@@ -9,7 +9,7 @@ const Contact = () => {
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 mb-4 mb-md-0">
             <img
-              src="/images/contactus.jpeg"
+              src="/images/Contact.jpeg"
               alt="contactus"
               style={{
                 width: "100%",
