@@ -8,7 +8,7 @@ import {
 } from "../controllers/authController.js";
 
 import { isAdmin, requireSignIn } from './../middlewares/authMiddleware.js';
-
+import { getAllUsersController } from '../controllers/authController.js';
 // router object : for routing in separate file
 const router = express.Router();
 
@@ -39,4 +39,6 @@ router.get('/user-auth', requireSignIn, (req, res) => {
 // update user profile
 router.put('/profile',requireSignIn,updateProfileController);
 
+// Get all users (Admin only)
+router.get('/all', requireSignIn, isAdmin, getAllUsersController);
 export default router;
