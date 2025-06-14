@@ -14,7 +14,12 @@ const About = () => {
         </div>
         <div className="col-md-4">
           <p className="text-justify mt-2">
-            At Laundry, we make laundry day effortless. Our mission is to deliver fast, reliable, and eco-friendly laundry services tailored to your schedule. Whether it’s everyday wear or delicate fabrics, we handle your clothes with the utmost care. With convenient pickup and delivery options, Landdry is here to simplify your life—one clean load at a time.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
+            perferendis eius temporibus dicta blanditiis doloremque explicabo
+            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
+            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
+            commodi illum quidem neque tempora nam.
           </p>
         </div>
       </div>
