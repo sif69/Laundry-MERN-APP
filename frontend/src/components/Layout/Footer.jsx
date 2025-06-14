@@ -1,22 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Contact from './../../pages/Contact';
-const Footer = () =>{
 
-    return(
-        <div className='footer'>
-        <h1 className='text-center mt-3'>
-            All rights reserved &copy; SUST_CSE_2020
-        </h1>
-        <p className='text-center mt-3'>
-            <Link to="/about" >About Us</Link> 
-            |
-            <Link to="/contact">Contact</Link> 
-            |
-            <Link to="/policy">Privacy Policy</Link>
-            </p>
-      
-        </div>         
-    )
-}
+const Footer = () => {
+  return (
+    <div className='footer bg-dark text-light py-3'>
+      <div className="container">
+        <div className="row align-items-center">
+          {/* Left column */}
+          <div className="col-md-4 text-start">
+            <Link to="/admin-login" className="text-light me-3">Admin Login</Link>
+            <Link to="/delivery-login" className="text-light">Delivery Login</Link>
+          </div>
+
+          {/* Center column */}
+          <div className="col-md-4 text-center mt-2 mt-md-0">
+            <h6 className='m-0'>
+              All rights reserved &copy; SUST_CSE_2020
+            </h6>
+          </div>
+
+          {/* Right column */}
+          <div className="col-md-4 text-end mt-2 mt-md-0">
+            <Link to="/about" className="text-light me-2">About Us</Link>
+            <Link to="/contact" className="text-light me-2">Contact</Link>
+            <Link to="/policy" className="text-light">Privacy Policy</Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Footer;
