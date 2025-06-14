@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
 
@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      const res = await axios.post("http://localhost:8080/api/v1/auth/login", {
         email,
         password,
       });

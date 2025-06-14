@@ -8,7 +8,7 @@ const Policy = () => {
         <div className="row align-items-center shadow rounded bg-white p-4">
           <div className="col-md-6 mb-3 mb-md-0">
             <img
-              src="/images/contactus.jpeg"
+              src="/images/policy.webp"
               alt="contactus"
               style={{
                 width: "100%",
