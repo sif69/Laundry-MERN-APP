@@ -31,7 +31,7 @@ const Contact = () => {
                 </li>
                 <li className="mb-3">
                   <BiPhoneCall className="me-2 text-secondary" />
-                  <strong>Phone:</strong> 012-3456789
+                  <strong>Phone:</strong> 01857-662299
                 </li>
                 <li>
                   <BiSupport className="me-2 text-secondary" />
