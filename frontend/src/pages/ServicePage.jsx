@@ -133,7 +133,7 @@ const loadMore = async () => {
   return (
     <Layout title={"All Services - Best offers "}>
       <div className="service-page-background">
-              <div className="container-fluid row mt-3">
+        <div className="container-fluid row mt-3">
         <div className="col-md-2">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
