@@ -170,7 +170,7 @@ const loadMore = async () => {
           <h1 className="text-center">All Services</h1>
           <div className="d-flex flex-wrap">
             {services?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem", borderRadius: "1rem"
+              <div className="card m-2" style={{ width: "18rem", borderRadius: "1rem" , backgroundColor: "#F5F5F5"
                }} key={p._id}>
                 <img
                   src={`/api/v1/service/service-photo/${p._id}`}
@@ -182,7 +182,7 @@ const loadMore = async () => {
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
                   </p>
-                  <p className="card-text"> $ {p.price}</p>
+                  <p className="card-text"> ৳{p.price}</p>
                   <button
                     className="btn btn-primary ms-1"
                     onClick={() => navigate(`/service/${p.slug}`)}

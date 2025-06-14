@@ -35,17 +35,17 @@ const Services = () => {
             {services?.map((p) => (
               <div className="col-md-4 mb-4" key={p._id}>
                 <Link to={`/dashboard/admin/service/${p.slug}`} className="service-link">
-                  <div className="card h-100">
+                  <div className="card h-100 " style={{ borderRadius:"1rem" , backgroundColor:"#F5F5F5"}}>
                     <img
                       src={`/api/v1/service/service-photo/${p._id}`}
-                      className="card-img-top"
+                      className="package-image"
                       alt={p.name}
                       style={{ height: "200px", objectFit: "cover" }}
                     />
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">{p.name}</h5>
                       <p className="card-text flex-grow-1">{p.description}</p>
-                      <p className="card-text fw-bold text-primary">$ {p.price}</p>
+                      <p className="card-text fw-bold text-primary">৳ {p.price}</p>
                     </div>
                   </div>
                 </Link>
