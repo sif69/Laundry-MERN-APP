@@ -1,6 +1,6 @@
 # 🧺 Web-Based Laundry Management System
 
-A modern, role-based web application designed to streamline operations of a laundry business. Built for three primary roles: **Customer**, **Supplier**, and **Admin**, this system enhances service delivery, communication, and business management.
+A modern, role-based web application designed to streamline operations of a laundry business. Built for three primary roles: **Customer**, **DeliveryMen**, and **Admin**, this system enhances service delivery, communication, and business management.
 
 ---
 
@@ -62,85 +62,3 @@ Frontend: React, Tailwind CSS
 Backend: Node.js, Express.js  
 Database: MongoDB  
 Authentication: JWT, Bcrypt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
