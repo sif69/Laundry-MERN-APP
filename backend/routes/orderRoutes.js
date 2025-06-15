@@ -1,6 +1,8 @@
 import express from "express";
-import { requireSignIn,isDelivery,isAdmin} from "../middlewares/authMiddleware.js";
-//import { requireSignIn,isAdmin } from "../middlewares/authMiddleware.js";
+
+import { requireSignIn, isDelivery, isAdmin } from "../middlewares/authMiddleware.js";
+
+
 import {
   getOrderByIdController,
   getUserOrdersController,
@@ -19,7 +21,7 @@ router.get("/", requireSignIn, getUserOrdersController);
 // For admin: Get all orders
 router.get("/admin/all", requireSignIn, isAdmin, getAllOrdersController);
 
-
 // Update order status
 router.put("/status/:orderId", requireSignIn, isDelivery, updateOrderStatusController);
+
 export default router;
