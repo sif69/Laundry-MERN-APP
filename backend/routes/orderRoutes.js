@@ -1,6 +1,6 @@
 import express from "express";
 import { requireSignIn,isDelivery } from "../middlewares/authMiddleware.js";
-
+import { requireSignIn,isAdmin } from "../middlewares/authMiddleware.js";
 import {
   getOrderByIdController,
   getUserOrdersController,
@@ -16,7 +16,8 @@ router.get("/all", requireSignIn, isDelivery, getAllOrdersController);
 router.get("/:orderId", requireSignIn, getOrderByIdController);
 router.get("/", requireSignIn, getUserOrdersController);
 
-
+// For admin: Get all orders
+router.get("/admin/all", requireSignIn, isAdmin, getAllOrdersController);
 
 
 // Update order status
