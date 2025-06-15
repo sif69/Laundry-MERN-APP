@@ -15,12 +15,10 @@ const UpdateService = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  // const [loadCount, setLoadCount] = useState("");
-  // const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
 
-  //get single Service
+  // Get single service
   const getSingleService = async () => {
     try {
       const { data } = await axios.get(
@@ -30,23 +28,17 @@ const UpdateService = () => {
       setId(data.service._id);
       setDescription(data.service.description);
       setPrice(data.service.price);
-     
-      // setLoadCount(data.service.loadCount);
-      // setShipping(data.service.shipping);
       setCategory(data.service.category._id);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getSingleService();
-    //eslint-disable-next-line
   }, []);
 
-
-
-
-  //get all category
+  // Get all categories
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");
@@ -55,7 +47,7 @@ const UpdateService = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong in getting catgeory");
+      toast.error("Something went wrong in getting category");
     }
   };
 
@@ -63,7 +55,7 @@ const UpdateService = () => {
     getAllCategory();
   }, []);
 
-  //create Service function
+  // Update service
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -71,41 +63,42 @@ const UpdateService = () => {
       serviceData.append("name", name);
       serviceData.append("description", description);
       serviceData.append("price", price);
-      // serviceData.append("loadCount", loadCount);
-      photo && serviceData.append("photo", photo);
+      if (photo) serviceData.append("photo", photo);
       serviceData.append("category", category);
-      // serviceData.append("shipping", shipping);
+
       const { data } = await axios.put(
         `/api/v1/service/update-service/${id}`,
         serviceData
       );
       if (data?.success) {
-      toast.success("Service Updated Successfully");
-      navigate("/dashboard/admin/services");
-    } else {
-      toast.error(data?.message);
-    }
+        toast.success("Service Updated Successfully");
+        navigate("/dashboard/admin/services");
+      } else {
+        toast.error(data?.message);
+      }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
-  //delete a service
+  // Delete service (updated with confirm dialog)
   const handleDelete = async () => {
     try {
-      let answer = window.prompt("Are You Sure want to delete this service ? ");
-      if (!answer) return;
+      const confirmDelete = window.confirm("Are you sure you want to delete this service?");
+      if (!confirmDelete) return;
+
       const { data } = await axios.delete(
         `/api/v1/service/delete-service/${id}`
       );
-      toast.success("Service Deleted Succfully");
+      toast.success("Service Deleted Successfully");
       navigate("/dashboard/admin/services");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
     }
   };
+
   return (
     <Layout title={"Dashboard - Update Service"}>
       <div className="container-fluid m-3 p-3">
@@ -122,9 +115,7 @@ const UpdateService = () => {
                 size="large"
                 showSearch
                 className="form-select mb-3"
-                onChange={(value) => {
-                  setCategory(value);
-                }}
+                onChange={(value) => setCategory(value)}
                 value={category}
               >
                 {categories?.map((c) => (
@@ -145,80 +136,44 @@ const UpdateService = () => {
                   />
                 </label>
               </div>
-              <div className="mb-3">
-                {photo ? (
-                  <div className="text-center">
-                    <img
-                      src={URL.createObjectURL(photo)}
-                      alt="service_photo"
-                      height={"200px"}
-                      className="img img-responsive"
-                    />
-                  </div>
-                ) : (
-                  <div className="text-center">
-                    <img
-                      src={`/api/v1/service/service-photo/${id}`}
-                      alt="service_photo"
-                      height={"200px"}
-                      className="img img-responsive"
-                    />
-                  </div>
-                )}
+              <div className="mb-3 text-center">
+                <img
+                  src={
+                    photo
+                      ? URL.createObjectURL(photo)
+                      : `/api/v1/service/service-photo/${id}`
+                  }
+                  alt="service_photo"
+                  height={"200px"}
+                  className="img img-responsive"
+                />
               </div>
               <div className="mb-3">
                 <input
                   type="text"
                   value={name}
-                  placeholder="write a name"
+                  placeholder="Write a name"
                   className="form-control"
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="mb-3">
                 <textarea
-                  type="text"
                   value={description}
-                  placeholder="write a description"
+                  placeholder="Write a description"
                   className="form-control"
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
-
               <div className="mb-3">
                 <input
                   type="number"
                   value={price}
-                  placeholder="write a Price"
+                  placeholder="Write a Price"
                   className="form-control"
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
-              {/* <div className="mb-3">
-                <input
-                  type="number"
-                  value={loadCount}
-                  placeholder="write a load count"
-                  className="form-control"
-                  onChange={(e) => setLoadCount(e.target.value)}
-                />
-              </div>
-              <div className="mb-3">
-                <Select
-                  bordered={false}
-                  placeholder="Select Shipping "
-                  size="large"
-                  showSearch
-                  className="form-select mb-3"
-                  onChange={(value) => {
-                    setShipping(value);
-                  }}
-                  value={shipping}
-                >
-                  <Option value="0">No</Option>
-                  <Option value="1">Yes</Option>
-                </Select>
-              </div> */}
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleUpdate}>
                   UPDATE Service
