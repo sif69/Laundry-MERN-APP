@@ -98,7 +98,24 @@ const Orders = () => {
                         <td>{order.amount} BDT</td>
                         <td>{getStatusBadge(order.orderStatus)}</td>
                         <td>
-                          
+                          <select
+                            className="form-select"
+                            value={order.orderStatus}
+                            onChange={(e) =>
+                              handleStatusChange(order._id, e.target.value)
+                            }
+                          >
+                            <option value="Clothes not received 👕❌🙁">
+                              Not Received
+                            </option>
+                            <option value="Clothes received 👕✅😊">
+                              Received
+                            </option>
+                            <option value="In Servicing 👨‍🔧">
+                              Servicing
+                            </option>
+                            <option value="delivered 🚚📦🛵">Delivered</option>
+                          </select>
                         </td>
                       </tr>
                     ))}
