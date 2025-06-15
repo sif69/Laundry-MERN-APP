@@ -1,11 +1,11 @@
 import serviceModel from "../models/serviceModel.js";
-import categoryModel from "../models/serviceModel.js"
+import categoryModel from "../models/categoryModel.js"
 import fs from "fs";
 import slugify from "slugify";
 
 export const createServiceController = async (req, res) => {
   try {
-    const { name, description, price, category, loadCount, shipping } =
+    const { name, description, price, category} =
       req.fields;
     const { photo } = req.files;
     // validation
@@ -18,9 +18,9 @@ export const createServiceController = async (req, res) => {
         return res.status(500).send({ error: "Price is required" });
       case !category:
         return res.status(500).send({ error: "Category is required" });
-      case !loadCount:
-        return res.status(500).send({ error: "Load Count is required" });
-      case photo && photo.size > 1000000:
+      // case !loadCount:
+      //   return res.status(500).send({ error: "Load Count is required" });
+      case photo && photo.size > 2000000:
         return res
           .status(500)
           .send({ error: "Photo is required and should be less than 1mb" });
@@ -57,7 +57,6 @@ export const getServiceController = async (req, res) => {
       .find({})
       .populate("category")
       .select("-photo")
-      .limit(5)
       .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
@@ -139,7 +138,7 @@ export const deleteServiceController = async (req, res) => {
 
 export const updateServiceController = async (req, res) => {
   try {
-    const { name, description, price, category, loadCount, shipping } =
+    const { name, description, price, category} =
       req.fields;
     const { photo } = req.files;
     // validation
@@ -152,9 +151,9 @@ export const updateServiceController = async (req, res) => {
         return res.status(500).send({ error: "Price is required" });
       case !category:
         return res.status(500).send({ error: "Category is required" });
-      case !loadCount:
-        return res.status(500).send({ error: "Load Count is required" });
-      case photo && photo.size > 1000000:
+      // case !loadCount:
+      //   return res.status(500).send({ error: "Load Count is required" });
+      case photo && photo.size > 2000000:
         return res
           .status(500)
           .send({ error: "Photo is required and should be less than 1mb" });
@@ -192,11 +191,18 @@ export const updateServiceController = async (req, res) => {
 
 export const serviceFiltersController = async (req, res) => {
   try {
-    const { checked, radio } = req.body;
+    const { checked = [], radio = [], page = 1 } = req.body;
+    const perPage = 3; // or your preferred page size
     let args = {};
+
     if (checked.length > 0) args.category = checked;
     if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
-    const services = await serviceModel.find(args);
+
+    const services = await serviceModel
+      .find(args)
+      .skip((page - 1) * perPage)
+      .limit(perPage);
+
     res.status(200).send({
       success: true,
       services,
