@@ -216,7 +216,7 @@ const CartPage = () => {
                     className="btn btn-outline-warning"
                     onClick={() => navigate("/dashboard/user/profile")}
                   >
-                    Update Address
+                    Update Profile
                   </button>
                 </div>
               </>
@@ -227,7 +227,7 @@ const CartPage = () => {
                     className="btn btn-outline-warning"
                     onClick={() => navigate("/dashboard/user/profile")}
                   >
-                    Update Address
+                    Update Profile
                   </button>
                 ) : (
                   <button

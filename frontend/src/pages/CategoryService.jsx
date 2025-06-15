@@ -49,12 +49,12 @@ const CategoryService = () => {
                       {p.description.substring(0, 30)}...
                     </p>
                     <p className="card-text"> $ {p.price}</p>
-                    <button
+                    {/* <button
                       className="btn btn-primary ms-1"
                       onClick={() => navigate(`/service/${p.slug}`)}
                     >
                       More Details
-                    </button>
+                    </button> */}
                     <button className="btn btn-secondary ms-1">
                       Add To Laundry Basket
                     </button>
