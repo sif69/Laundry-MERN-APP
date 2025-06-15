@@ -7,11 +7,9 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
-   
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "proxy": "http://localhost:8080"
-  ,
+  "proxy": "http://localhost:8080",
   "keywords": [],
   "author": "",
   "license": "ISC",

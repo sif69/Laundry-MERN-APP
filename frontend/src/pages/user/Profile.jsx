@@ -4,27 +4,26 @@ import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 const Profile = () => {
-  //context
   const [auth, setAuth] = useAuth();
-  //state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-  //get user data
   useEffect(() => {
-  if (!auth?.user) return;
-  const { email, name, phone, address } = auth.user;
-  setName(name);
-  setPhone(phone);
-  setEmail(email);
-  setAddress(address);
-}, [auth?.user]);
+    if (!auth?.user) return;
+    const { email, name, phone, address } = auth.user;
+    setName(name);
+    setPhone(phone);
+    setEmail(email);
+    setAddress(address);
+  }, [auth?.user]);
 
-  // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -35,7 +34,7 @@ const Profile = () => {
         phone,
         address,
       });
-      if (data?.errro) {
+      if (data?.error) {
         toast.error(data?.error);
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
@@ -50,24 +49,24 @@ const Profile = () => {
       toast.error("Something went wrong");
     }
   };
+
   return (
     <Layout title={"Your Profile"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid py-4 px-3">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 mb-3">
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <div className="form-container ">
+            <div className="card p-4 shadow-sm bg-light rounded">
+              <h4 className="mb-4 text-center text-primary fw-bold">User Profile</h4>
               <form onSubmit={handleSubmit}>
-                <h4 className="title">USER PROFILE</h4>
                 <div className="mb-3">
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="form-control"
-                    id="exampleInputEmail1"
                     placeholder="Enter Your Name"
                     autoFocus
                   />
@@ -76,47 +75,53 @@ const Profile = () => {
                   <input
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
                     className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter Your Email "
+                    placeholder="Enter Your Email"
                     disabled
                   />
                 </div>
-                <div className="mb-3">
+
+                {/* Password with icon */}
+                <div className="mb-3 position-relative">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Enter Your Password"
+                    placeholder="Enter New Password"
                   />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="position-absolute top-50 end-0 translate-middle-y pe-3"
+                    style={{ cursor: "pointer" }}
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                 </div>
+
                 <div className="mb-3">
                   <input
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="form-control"
-                    id="exampleInputEmail1"
                     placeholder="Enter Your Phone"
                   />
                 </div>
-                <div className="mb-3">
+                <div className="mb-4">
                   <input
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="form-control"
-                    id="exampleInputEmail1"
                     placeholder="Enter Your Address"
                   />
                 </div>
-
-                <button type="submit" className="btn btn-primary">
-                  UPDATE
-                </button>
+                <div className="text-center">
+                  <button type="submit" className="btn btn-primary px-5">
+                    UPDATE
+                  </button>
+                </div>
               </form>
             </div>
           </div>

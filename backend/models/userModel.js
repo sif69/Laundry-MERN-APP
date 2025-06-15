@@ -32,6 +32,7 @@ const userSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+
   },
   { timestamp: true } // createdAt and updatedAt fields
 );
