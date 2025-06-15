@@ -23,17 +23,17 @@ const serviceSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
-    loadCount: {
-      type: Number,
-      required: true,
-    },
+    // loadCount: {
+    //   type: Number,
+    //   required: true,
+    // },
     photo: {
       data: Buffer,
       contentType: String,
     },
-    shipping: {
-      type: Boolean,
-    },
+    // shipping: {
+    //   type: Boolean,
+    // },
   },
   { timestamps: true }
 );

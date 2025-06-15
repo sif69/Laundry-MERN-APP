@@ -15,8 +15,8 @@ const UpdateService = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [loadCount, setLoadCount] = useState("");
-  const [shipping, setShipping] = useState("");
+  // const [loadCount, setLoadCount] = useState("");
+  // const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
 
@@ -31,8 +31,8 @@ const UpdateService = () => {
       setDescription(data.service.description);
       setPrice(data.service.price);
      
-      setLoadCount(data.service.loadCount);
-      setShipping(data.service.shipping);
+      // setLoadCount(data.service.loadCount);
+      // setShipping(data.service.shipping);
       setCategory(data.service.category._id);
     } catch (error) {
       console.log(error);
@@ -71,10 +71,10 @@ const UpdateService = () => {
       serviceData.append("name", name);
       serviceData.append("description", description);
       serviceData.append("price", price);
-      serviceData.append("loadCount", loadCount);
+      // serviceData.append("loadCount", loadCount);
       photo && serviceData.append("photo", photo);
       serviceData.append("category", category);
-      serviceData.append("shipping", shipping);
+      // serviceData.append("shipping", shipping);
       const { data } = await axios.put(
         `/api/v1/service/update-service/${id}`,
         serviceData
@@ -194,7 +194,7 @@ const UpdateService = () => {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <input
                   type="number"
                   value={loadCount}
@@ -218,7 +218,7 @@ const UpdateService = () => {
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>
                 </Select>
-              </div>
+              </div> */}
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleUpdate}>
                   UPDATE Service

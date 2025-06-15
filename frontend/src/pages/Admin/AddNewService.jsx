@@ -15,8 +15,8 @@ const AddNewService = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [loadCount, setLoadCount] = useState("");
-  const [shipping, setShipping] = useState("");
+  // const [loadCount, setLoadCount] = useState("");
+  // const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
 
   //get all category
@@ -44,7 +44,7 @@ const AddNewService = () => {
       serviceData.append("name", name);
       serviceData.append("description", description);
       serviceData.append("price", price);
-      serviceData.append("loadCount", loadCount);
+      // serviceData.append("loadCount", loadCount);
       serviceData.append("photo", photo);
       serviceData.append("category", category);
       const { data } = axios.post(
@@ -141,7 +141,7 @@ const AddNewService = () => {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <input
                   type="number"
                   value={loadCount}
@@ -164,7 +164,7 @@ const AddNewService = () => {
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>
                 </Select>
-              </div>
+              </div> */}
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleCreate}>
                   Add New Service

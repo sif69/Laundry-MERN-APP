@@ -403,7 +403,10 @@ import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import Steps from "../components/Steps";
 import Packages from "../components/Packages";
-import washingMachine from "../assets/washing-machine.png";
+import washing1 from "../assets/pick.svg";
+import washing2 from "../assets/collect.svg";
+import washing3 from "../assets/go.svg";
+import washing4 from "../assets/card.svg"
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -415,6 +418,18 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
+  const washingImages = [washing1, washing2, washing3, washing4];
+const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % washingImages.length);
+  }, 3000); // Change image every 3 seconds
+
+  return () => clearInterval(interval); // Cleanup
+}, []);
+
 
   // get all categories
   const getAllCategory = async () => {
@@ -531,7 +546,7 @@ const HomePage = () => {
 
   <div className="header-image-container" data-aos="fade-down-left">
     <img
-      src={washingMachine}
+      src={washingImages[currentImageIndex]}
       alt="Washing Machine"
       className="header-image" 
     />
@@ -542,6 +557,10 @@ const HomePage = () => {
      <Steps/>
      <Packages/> 
     </Layout>
+      );
+};
+
+export default HomePage;
 //  <Layout title={"All Services - Best offers "}>
 //       <div className="container-fluid row mt-3">
 //         <div className="col-md-2">
@@ -646,8 +665,8 @@ const HomePage = () => {
 //         </div>
 //       </div>
 //     </Layout> 
+//   );
+// };
 
-  );
-};
+// export default HomePage;
 
-export default HomePage;
