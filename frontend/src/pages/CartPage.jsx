@@ -90,9 +90,8 @@ const CartPage = () => {
             </h1>
             <h4 className="text-center">
               {cart?.length
-                ? `You Have Selected ${cart.length} Services in your Laundry Basket ${
-                    auth?.token ? "" : "please login to checkout"
-                  }`
+                ? `You Have Selected ${cart.length} Services in your Laundry Basket ${auth?.token ? "" : "please login to checkout"
+                }`
                 : "Your Laundry Basket Is Empty"}
             </h4>
           </div>
@@ -168,11 +167,20 @@ const CartPage = () => {
             <div className="mb-3">
               <h4>Items in Cart:</h4>
               <ul className="list-group">
-                {cart?.map((item) => (
-                  <li key={item._id} className="list-group-item d-flex justify-content-between">
+                {cart?.map((item, index) => (
+                  <li
+                    key={item._id}
+                    className="list-group-item d-flex justify-content-between"
+                    title={item.description || ""}
+                    style={{
+                      backgroundColor: index % 2 === 0 ? "#f8f9fa" : "#ffffff", // Light grey & white
+                      transition: "background-color 0.3s",
+                    }}
+                  >
                     <span>{item.name}</span>
                     <span>
-                      {item.quantity} x {item.price.toLocaleString("en-US", {
+                      {item.quantity} x{" "}
+                      {item.price.toLocaleString("en-US", {
                         style: "currency",
                         currency: "BDT",
                       })}
@@ -186,6 +194,16 @@ const CartPage = () => {
                   </li>
                 ))}
               </ul>
+
+              <style>
+                {`
+  .list-group-item:hover, tr:hover {
+    background-color:rgb(241, 241, 26) !important;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+`}
+              </style>
             </div>
             <h4>Total: {totalPrice()}</h4>
 
