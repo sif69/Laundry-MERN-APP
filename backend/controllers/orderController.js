@@ -25,7 +25,8 @@ export const getAllOrdersController = async (req, res) => {
   try {
     const orders = await Order.find({})
       .populate("user", "name email address")
-      .populate("services.service");
+      .populate("services.service")
+      .sort({ createdAt: -1 }); 
     res.json({ orders });
   } catch (error) {
     res.status(500).json({ error: "Could not fetch all orders" });

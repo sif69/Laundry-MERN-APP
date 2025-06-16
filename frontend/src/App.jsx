@@ -30,6 +30,8 @@ import PaymentSuccess from "./pages/Payment/PaymentSuccess";
 import PaymentFail from "./pages/Payment/PaymentFail";
 import PaymentCancel from "./pages/Payment/PaymentCancel";
 import AllOrders from "./pages/Delivery/AllOrders";
+
+
 function App() {
   return (
     <>
@@ -60,6 +62,8 @@ function App() {
           <Route path="admin/service/:slug" element={<UpdateService />} />
           <Route path="admin/services" element={<Services />} />
           <Route path="admin/Users" element={<Users />} />
+          
+          
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

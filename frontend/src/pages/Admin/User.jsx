@@ -54,19 +54,21 @@ const Users = () => {
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Contact</th>
                     <th>Address</th>
                     {/* <th>Orders</th> */}
                   </tr>
                 </thead>
                 <tbody>
                   {users
-                    .filter((user) => user.role !== 1) // Exclude admin (assuming role: 1 is admin)
+                    .filter((user) => user.role === 0) // Exclude admin (assuming role: 1 is admin)
                     .map((user) => {
                       const userOrders = getUserOrders(user._id);
                       return (
                         <tr key={user._id}>
                           <td>{user.name}</td>
                           <td>{user.email}</td>
+                          <td>{user.phone}</td>
                           <td>{user.address}</td>
                           {/* <td>
                             {userOrders.length === 0 ? (
