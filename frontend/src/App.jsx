@@ -30,6 +30,7 @@ import PaymentSuccess from "./pages/Payment/PaymentSuccess";
 import PaymentFail from "./pages/Payment/PaymentFail";
 import PaymentCancel from "./pages/Payment/PaymentCancel";
 import AllOrders from "./pages/Delivery/AllOrders";
+
 function App() {
   return (
     <>

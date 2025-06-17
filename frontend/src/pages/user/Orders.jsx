@@ -108,12 +108,12 @@ const Orders = () => {
                             <option value="Clothes not received 👕❌🙁">
                               Not Received
                             </option>
-                            <option value="Clothes received 👕✅😊">
+                            {/* <option value="Clothes received 👕✅😊">
                               Received
-                            </option>
-                            <option value="In Servicing 👨‍🔧">
+                            </option> */}
+                            {/* <option value="In Servicing 👨‍🔧">
                               Servicing
-                            </option>
+                            </option> */}
                             <option value="delivered 🚚📦🛵">Delivered</option>
                           </select>
                         </td>
