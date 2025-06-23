@@ -11,7 +11,7 @@ const Services = () => {
   // Get all services
   const getAllServices = async () => {
     try {
-      const { data } = await axios.get("/api/v1/service/get-service");
+      const { data } = await axios.get("https://laundry-mern-app-backend.onrender.com/api/v1/service/get-service");
       setServices(data.services);
     } catch (error) {
       console.log(error);
