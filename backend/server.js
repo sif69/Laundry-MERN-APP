@@ -8,7 +8,7 @@ import categoryRoutes from './routes/categoryRoutes.js' ;
 import serviceRoutes from './routes/serviceRoutes.js'
 import paymentRoutes from './routes/paymentRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
-import chatbot from './routes/chatbot.js';
+
 import cors from 'cors'
 
 // configure dotenv
@@ -35,7 +35,7 @@ app.use('/api/v1/category', categoryRoutes);
 app.use('/api/v1/service', serviceRoutes);
 app.use('/api/v1/payment', paymentRoutes);
 app.use('/api/v1/order', orderRoutes);
-app.use("/api/v1/admin", chatbot);
+// app.use("/api/v1/admin", chatbot);
 // REST API
 
 app.get('/', (req, res) => {
