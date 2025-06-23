@@ -18,6 +18,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      //host -/api/v1/auth/login
       const res = await axios.post("/api/v1/auth/login", {
         email,
         password,
