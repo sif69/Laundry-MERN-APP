@@ -19,7 +19,7 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       //host -/api/v1/auth/login
-      const res = await axios.post("https://laundry-mern-app.onrender.com//api/v1/auth/login", {
+      const res = await axios.post("https://laundry-mern-app.onrender.com/api/v1/auth/login", {
         email,
         password,
       });
@@ -34,9 +34,9 @@ const AdminLogin = () => {
         if (res.data.user.role === 1) {
           navigate("/dashboard/admin");
         } else if (res.data.user.role === 2) {
-          navigate("/dashboard/user/orders");
+          navigate("https://laundry-mern-app.onrender.com/dashboard/user/orders");
         } else {
-          navigate("/dashboard/user");
+          navigate("https://laundry-mern-app.onrender.com/dashboard/user");
         }
       } else {
         toast.error(res.data.message);
