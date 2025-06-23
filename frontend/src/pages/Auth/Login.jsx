@@ -32,11 +32,11 @@ const Login = () => {
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
         if (res.data.user.role === 1) {
-          navigate("https://laundry-mern-app-backend.onrender.com/dashboard/admin");
+          navigate("/dashboard/admin");
         } else if (res.data.user.role === 2) {
-          navigate("https://laundry-mern-app-backend.onrender.com/dashboard/user/orders");
+          navigate("/dashboard/user/orders");
         } else {
-          navigate("https://laundry-mern-app-backend.onrender.com/dashboard/user");
+          navigate("/dashboard/user");
         }
       } else {
         toast.error(res.data.message);
