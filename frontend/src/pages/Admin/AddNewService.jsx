@@ -22,7 +22,7 @@ const AddNewService = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get("https://laundry-mern-app-backend.onrender.com/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -55,7 +55,7 @@ const AddNewService = () => {
         toast.error(data?.message);
       } else {
         toast.success("Service Added Successfully");
-        navigate("/dashboard/admin/services");
+        navigate("https://laundry-mern-app-backend.onrender.com/dashboard/admin/services");
       }
     } catch (error) {
       console.log(error);
