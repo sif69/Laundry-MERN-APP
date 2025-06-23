@@ -22,7 +22,7 @@ const UpdateService = () => {
   const getSingleService = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/service/get-service/${params.slug}`
+        `https://laundry-mern-app-backend.onrender.com/api/v1/service/get-service/${params.slug}`
       );
       setName(data.service.name);
       setId(data.service._id);
@@ -41,7 +41,7 @@ const UpdateService = () => {
   // Get all categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get("https://laundry-mern-app-backend.onrender.com/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -67,12 +67,12 @@ const UpdateService = () => {
       serviceData.append("category", category);
 
       const { data } = await axios.put(
-        `/api/v1/service/update-service/${id}`,
+        `https://laundry-mern-app-backend.onrender.com/api/v1/service/update-service/${id}`,
         serviceData
       );
       if (data?.success) {
         toast.success("Service Updated Successfully");
-        navigate("/dashboard/admin/services");
+        navigate("https://laundry-mern-app-backend.onrender.com/dashboard/admin/services");
       } else {
         toast.error(data?.message);
       }
@@ -89,10 +89,10 @@ const UpdateService = () => {
       if (!confirmDelete) return;
 
       const { data } = await axios.delete(
-        `/api/v1/service/delete-service/${id}`
+        `https://laundry-mern-app-backend.onrender.com/api/v1/service/delete-service/${id}`
       );
       toast.success("Service Deleted Successfully");
-      navigate("/dashboard/admin/services");
+      navigate("https://laundry-mern-app-backend.onrender.com/dashboard/admin/services");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -141,7 +141,7 @@ const UpdateService = () => {
                   src={
                     photo
                       ? URL.createObjectURL(photo)
-                      : `/api/v1/service/service-photo/${id}`
+                      : `https://laundry-mern-app-backend.onrender.com/api/v1/service/service-photo/${id}`
                   }
                   alt="service_photo"
                   height={"200px"}
