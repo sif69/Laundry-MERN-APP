@@ -18,7 +18,8 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      //host -/api/v1/auth/login
+      const res = await axios.post("https://laundry-mern-app.onrender.com//api/v1/auth/login", {
         email,
         password,
       });
