@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import axios from "../axiosConfig";
 import { useParams, useNavigate } from "react-router-dom";
+import { getServicePhotoUrl } from "../utils/getApiUrl";
 const ServiceDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const ServiceDetails = () => {
       <div className="row container mt-2">
         <div className="col-md-6">
           <img
-            src={`/api/v1/service/service-photo/${service._id}`}
+            src={getServicePhotoUrl(service._id)}
             className="card-img-top"
             alt={service.name}
             height="300"
@@ -91,7 +92,7 @@ const ServiceDetails = () => {
           {relatedServices?.map((p) => (
             <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
               <img
-                src={`/api/v1/service/service-photo/${p?._id}`}
+                src={getServicePhotoUrl(p?._id)}
                 className="card-img-top"
                 alt={p.name}
               />

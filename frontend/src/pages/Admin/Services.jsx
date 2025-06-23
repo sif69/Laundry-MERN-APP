@@ -4,6 +4,7 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "../../axiosConfig";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { getServicePhotoUrl } from "../../utils/getApiUrl";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -37,7 +38,7 @@ const Services = () => {
                 <Link to={`/dashboard/admin/service/${p.slug}`} className="service-link">
                   <div className="card h-100 " style={{ borderRadius:"1rem" , backgroundColor:"#F5F5F5"}}>
                     <img
-                      src={`/api/v1/service/service-photo/${p._id}`}
+                      src={getServicePhotoUrl(p._id)}
                       className="package-image"
                       alt={p.name}
                       style={{ height: "200px", objectFit: "cover" }}

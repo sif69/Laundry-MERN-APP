@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../axiosConfig";
+import { getServicePhotoUrl } from "../utils/getApiUrl";
 const CategoryService = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const CategoryService = () => {
                   key={p._id}
                 >
                   <img
-                    src={`/api/v1/service/service-photo/${p._id}`}
+                    src={getServicePhotoUrl(p._id)}
                     className="card-img-top"
                     alt={p.name}
                   />

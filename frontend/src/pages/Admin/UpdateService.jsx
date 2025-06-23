@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import axios from "../../axiosConfig";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import { getServicePhotoUrl } from "../../utils/getApiUrl";
 const { Option } = Select;
 
 const UpdateService = () => {
@@ -142,7 +143,7 @@ const UpdateService = () => {
                   src={
                     photo
                       ? URL.createObjectURL(photo)
-                      : `/api/v1/service/service-photo/${id}`
+                      : getServicePhotoUrl(id)
                   }
                   alt="service_photo"
                   height={"200px"}

@@ -6,6 +6,7 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+import { getServicePhotoUrl } from "../utils/getApiUrl";
 
 const ServicePage = () => {
   const navigate = useNavigate();
@@ -173,7 +174,7 @@ const loadMore = async () => {
               <div className="card m-2" style={{ width: "18rem", borderRadius: "1rem" , backgroundColor: "#F5F5F5"
                }} key={p._id}>
                 <img
-                  src={`/api/v1/service/service-photo/${p._id}`}
+                  src={getServicePhotoUrl(p._id)}
                   className="package-image"
                   alt={p.name}
                 />
