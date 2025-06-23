@@ -1,0 +1,30 @@
+# Ignore node_modules and build artifacts
+node_modules/
+**/node_modules/
+
+# Ignore custom folders
+client/
+client2/
+
+# Ignore environment variables
+.env*
+*.env*
+
+# Ignore logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore output/build directories
+dist/
+build/
+**/dist/
+**/build/
+
+# Ignore caches
+.cache/
+**/.cache/
