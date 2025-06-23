@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
-import axios from "axios";
+import axios from "../../axiosConfig";
 import { useNavigate } from "react-router-dom";
 import "../../styles/AuthStyles.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";

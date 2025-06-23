@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import DeliveryMenu from "../../components/Layout/DeliveryMenu";
-import axios from "axios";
+import axios from "../../axiosConfig";
 // import { useAuth } from "../../context/auth";
 
 const AllOrders = () => {

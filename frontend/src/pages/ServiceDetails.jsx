@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
-import axios from "axios";
+import axios from "../axiosConfig";
 import { useParams, useNavigate } from "react-router-dom";
 const ServiceDetails = () => {
   const params = useParams();

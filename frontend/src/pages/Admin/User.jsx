@@ -108,7 +108,7 @@ import React, { useEffect, useState } from "react";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 const Users = () => {
   const [orders, setOrders] = useState([]);

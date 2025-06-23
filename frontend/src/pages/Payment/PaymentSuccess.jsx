@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axiosConfig";
 import { useAuth } from "../../context/auth";
 import { useCart } from "../../context/cart";
 
