@@ -4,11 +4,15 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+ 
   "start": "node server.js",
   "server": "nodemon server.js",
   "client": "npm start --prefix ../frontend",    
   "build": "npm run build --prefix ../frontend",  
-  "dev": "concurrently \"npm run server\" \"npm run client\""
+  "dev": "concurrently \"npm run server\" \"npm run client\"",
+  "heroku-postbuild": "npm install --prefix ../frontend && npm run build --prefix ../frontend"
+
+
 },
 
   "proxy": "http://localhost:8080",
