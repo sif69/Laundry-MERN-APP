@@ -71,8 +71,10 @@ const ServicePage = () => {
   // load more services
   const loadMore = async () => {
     try {
-      setLoading(false);
+      setLoading(true);
+      const { data } = await axios.get(`/api/v1/service/service-list/${page}`);
       setServices((prev) => [...prev, ...(data?.services || [])]);
+      setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
