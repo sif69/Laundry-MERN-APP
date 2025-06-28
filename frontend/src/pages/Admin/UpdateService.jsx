@@ -68,16 +68,12 @@ const UpdateService = () => {
       if (photo) serviceData.append("photo", photo);
       serviceData.append("category", category);
 
-      const { data } = await axios.put(
+      await axios.put(
         `/api/v1/service/update-service/${id}`,
         serviceData
       );
-      if (data?.success) {
-        toast.success("Service Updated Successfully");
-        navigate("/dashboard/admin/services");
-      } else {
-        toast.error(data?.message);
-      }
+      toast.success("Service Updated Successfully");
+      navigate("/dashboard/admin/services");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");

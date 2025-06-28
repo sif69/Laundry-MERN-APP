@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
     // Optionally, clear the old generic cart
     localStorage.removeItem("cart");
   // eslint-disable-next-line
-  }, [auth?.user?._id]);
+  }, [auth?.user?._id, getCartKey]);
 
   useEffect(() => {
     // Save cart for current user

@@ -42,7 +42,7 @@
 
 // export default AdminDashboard;
 
-import React, { useState } from "react";
+import React from "react";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import Layout from "../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
@@ -50,28 +50,6 @@ import DefaultProfile from "../../assets/admin-profile.jpg";
 
 const AdminDashboard = () => {
   const [auth] = useAuth();
-  // const [query, setQuery] = useState("");
-  // const [response, setResponse] = useState("");
-  // const [loading, setLoading] = useState(false);
-
-  // const handleChat = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const res = await fetch("/api/v1/admin/chatbot", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Authorization": auth?.token || "",
-  //       },
-  //       body: JSON.stringify({ question: query }),
-  //     });
-  //     const data = await res.json();
-  //     setResponse(data.answer || "No answer returned.");
-  //   } catch (err) {
-  //     setResponse("Error getting response.");
-  //   }
-  //   setLoading(false);
-  // };
 
   return (
     <Layout>
@@ -99,28 +77,6 @@ const AdminDashboard = () => {
                 <p className="mb-0">Contact: {auth?.user?.phone}</p>
               </div>
             </div>
-{/* 
-            Chatbot
-            <div className="card mt-4 p-3">
-              <h5>Ask Chatbot (Orders, Users, etc)</h5>
-              <div className="d-flex mb-2">
-                <input
-                  type="text"
-                  className="form-control me-2"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Ask something..."
-                />
-                <button className="btn btn-primary" onClick={handleChat} disabled={loading}>
-                  {loading ? "Thinking..." : "Ask"}
-                </button>
-              </div>
-              {response && (
-                <div className="alert alert-info">
-                  <strong>AI:</strong> {response}
-                </div>
-              )}
-            </div> */}
           </div>
         </div>
       </div>

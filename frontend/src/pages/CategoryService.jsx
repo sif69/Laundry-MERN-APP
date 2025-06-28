@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "../axiosConfig";
 import { getServicePhotoUrl } from "../utils/getApiUrl";
 const CategoryService = () => {
   const params = useParams();
-  const navigate = useNavigate();
   const [services, setServices] = useState([]);
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     if (params?.slug) getServicesByCat();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params?.slug]);
   const getServicesByCat = async () => {
     try {
@@ -50,12 +50,6 @@ const CategoryService = () => {
                       {p.description.substring(0, 30)}...
                     </p>
                     <p className="card-text"> $ {p.price}</p>
-                    {/* <button
-                      className="btn btn-primary ms-1"
-                      onClick={() => navigate(`/service/${p.slug}`)}
-                    >
-                      More Details
-                    </button> */}
                     <button className="btn btn-secondary ms-1">
                       Add To Laundry Basket
                     </button>
@@ -63,22 +57,6 @@ const CategoryService = () => {
                 </div>
               ))}
             </div>
-            {
-
-            /* <div className="m-2 p-3">
-            {services && services.length < total && (
-              <button
-                className="btn btn-warning"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage(page + 1);
-                }}
-              >
-                {loading ? "Loading ..." : "Loadmore"}
-              </button>
-            )}
-          </div> */
-          }
           </div>
         </div>
       </div>

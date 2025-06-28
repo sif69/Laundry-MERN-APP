@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
-import { useNavigate } from "react-router-dom";
 import axios from "../axiosConfig";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
@@ -9,7 +8,6 @@ import toast from "react-hot-toast";
 import { getServicePhotoUrl } from "../utils/getApiUrl";
 
 const ServicePage = () => {
-  const navigate = useNavigate();
   const [cart, setCart] = useCart();
   const [services, setServices] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -57,37 +55,22 @@ const ServicePage = () => {
   useEffect(() => {
     getAllCategory();
     getTotal();
-    // eslint-disable-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (page === 1) return;
-    if (!checked.length && !radio.length) {
-      loadMore();
-    } else {
-      filterService(page);
-    }
+    if (page === 1)
+      if (!checked.length && !radio.length) {
+        getAllServices();
+      } else {
+        filterService(1);
+      }
     // eslint-disable-next-line
   }, [page]);
 
   // load more services
   const loadMore = async () => {
     try {
-      setLoading(true);
-      let data;
-      if (!checked.length && !radio.length) {
-        // No filters, get all services
-        const res = await axios.get(`/api/v1/service/service-list/${page}`);
-        data = res.data;
-      } else {
-        // Filters active, get filtered services
-        const res = await axios.post(`/api/v1/service/service-filters`, {
-          checked,
-          radio,
-          page,
-        });
-        data = res.data;
-      }
       setLoading(false);
       setServices((prev) => [...prev, ...(data?.services || [])]);
     } catch (error) {
@@ -116,7 +99,7 @@ const ServicePage = () => {
         page: pageNum,
       });
       if (pageNum === 1) {
-        setServices(data?.services);
+        setServices(data?.services || []);
       } else {
         setServices((prev) => [...prev, ...(data?.services || [])]);
       }

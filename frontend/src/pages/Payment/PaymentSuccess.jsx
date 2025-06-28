@@ -10,7 +10,7 @@ const PaymentSuccess = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [auth] = useAuth();
-  const [cart, setCart] = useCart();
+  const [, setCart] = useCart(); // Remove unused 'cart'
 
   const orderId = new URLSearchParams(location.search).get("orderId");
 
@@ -39,43 +39,28 @@ const PaymentSuccess = () => {
     await axios.post("/api/v1/payment/cancel", { tran_id: order.tran_id });
     setCart([]);
     localStorage.removeItem("cart");
-    navigate("/payment-cancel");
+    navigate("/dashboard/user/orders");
   };
 
   return (
     <Layout>
-      <div className="container">
-        <h2>Payment Successful!</h2>
-        <p>Your order has been placed and is being processed.</p>
-        <div className="mb-3">
-          <button
-            className="btn btn-warning me-2"
-            onClick={handleCancelPayment}
-          >
-            Cancel Payment
-          </button>
-          <span style={{ color: "#e67e22", fontSize: "0.98em" }}>
-            (Cancel payment if you want to cancel the order. Your Laundry Basket will also be cleared.)
-          </span>
-        </div>
-        {order ? (
-          <div className="mt-4">
-            <h4>Order Details</h4>
-            <p><b>Order Status:</b> {order.orderStatus}</p>
-            <p><b>Payment Status:</b> {order.paymentStatus}</p>
-            <p><b>Transaction ID:</b> {order.tran_id}</p>
-            <ul>
-              {order.services.map((item, idx) => (
-                <li key={idx}>
-                  {item.service?.name} &times; {item.quantity} — Price: {item.service?.price}
-                </li>
-              ))}
-            </ul>
-            <p><b>Total Amount:</b> {order.amount}</p>
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-8 text-center">
+            <h2 className="text-success mb-4">Payment Successful!</h2>
+            {order ? (
+              <>
+                <p>Order ID: {order._id}</p>
+                <p>Transaction ID: {order.tran_id}</p>
+                <p>Amount: ৳{order.amount}</p>
+                <button className="btn btn-primary mt-3" onClick={() => navigate("/dashboard/user/orders")}>View Orders</button>
+                <button className="btn btn-danger mt-3 ms-2" onClick={handleCancelPayment}>Cancel Payment</button>
+              </>
+            ) : (
+              <p>Loading order details...</p>
+            )}
           </div>
-        ) : (
-          <p>Loading order details...</p>
-        )}
+        </div>
       </div>
     </Layout>
   );

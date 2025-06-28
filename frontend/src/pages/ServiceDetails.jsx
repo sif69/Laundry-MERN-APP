@@ -31,6 +31,7 @@ const ServiceDetails = () => {
   // initial details
   useEffect(() => {
     if (params?.slug) getService();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params?.slug]);
   // getService
   const getService = async () => {
