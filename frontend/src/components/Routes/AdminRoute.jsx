@@ -6,7 +6,7 @@ import Spinner from "../Spinner";
 
 export default function AdminRoute() {
   const [ok, setOk] = useState(false);
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
   useEffect(() => {
     const authCheck = async () => {
       try {
@@ -18,8 +18,6 @@ export default function AdminRoute() {
         }
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          // Handle 401 error here, e.g., redirect to an unauthorized page or show a message.
-          // Set the ok response to false if any error
           setOk(false);
         } else {
           console.error(error);

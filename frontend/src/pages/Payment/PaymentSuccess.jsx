@@ -34,13 +34,13 @@ const PaymentSuccess = () => {
   }, [order, setCart]);
 
   // Handle payment cancel
-const handleCancelPayment = async () => {
-  if (!order?.tran_id) return;
-  await axios.post("/api/v1/payment/cancel", { tran_id: order.tran_id });
-  setCart([]);
-  localStorage.removeItem("cart");
-  navigate("/payment-cancel");
-};
+  const handleCancelPayment = async () => {
+    if (!order?.tran_id) return;
+    await axios.post("/api/v1/payment/cancel", { tran_id: order.tran_id });
+    setCart([]);
+    localStorage.removeItem("cart");
+    navigate("/payment-cancel");
+  };
 
   return (
     <Layout>

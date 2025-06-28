@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 import { Link } from "react-router-dom";
 import { useSearch } from "../context/search";
 const Search = () => {
-  const [values, setValues] = useSearch();
+  const [values] = useSearch();
   return (
     <Layout title={"Search results"}>
       <div className="container">

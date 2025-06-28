@@ -3,31 +3,30 @@ import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import axios from "../axiosConfig";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getServicePhotoUrl } from "../utils/getApiUrl";
 const ServiceDetails = () => {
   const params = useParams();
-  const navigate = useNavigate();
   const [service, setService] = useState({});
   const [relatedServices, setRelatedServices] = useState([]);
   const [cart, setCart] = useCart();
   // add to cart
 
- const handleAddToCart = (service) => {
-  // Only block if the exact same _id is already in the cart
-  if (cart.some(item => item._id === service._id)) {
-    toast.error(`${service.name} is already in your laundry basket`);
-    return;
-  }
-  const serviceWithDate = {
-    ...service,
-    purchaseDate: new Date().toISOString(),
-    quantity: 1,
+  const handleAddToCart = (service) => {
+    // Only block if the exact same _id is already in the cart
+    if (cart.some((item) => item._id === service._id)) {
+      toast.error(`${service.name} is already in your laundry basket`);
+      return;
+    }
+    const serviceWithDate = {
+      ...service,
+      purchaseDate: new Date().toISOString(),
+      quantity: 1,
+    };
+    setCart([...cart, serviceWithDate]);
+    localStorage.setItem("cart", JSON.stringify([...cart, serviceWithDate]));
+    toast.success(`${service.name} added to laundry basket`);
   };
-  setCart([...cart, serviceWithDate]);
-  localStorage.setItem("cart", JSON.stringify([...cart, serviceWithDate]));
-  toast.success(`${service.name} added to laundry basket`);
-};
 
   // initial details
   useEffect(() => {
